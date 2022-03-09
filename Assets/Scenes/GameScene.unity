@@ -1527,11 +1527,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!54 &936443280 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2914443778812073406, guid: 0458577618d75c747a014e55997bc26f, type: 3}
-  m_PrefabInstance: {fileID: 4191131078128919985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &978992236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,9 +3280,9 @@ PrefabInstance:
       value: PlayerMoveParent
       objectReference: {fileID: 0}
     - target: {fileID: 4334431314389700769, guid: 0458577618d75c747a014e55997bc26f, type: 3}
-      propertyPath: playerRB
-      value: 
-      objectReference: {fileID: 936443280}
+      propertyPath: horizontalSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0458577618d75c747a014e55997bc26f, type: 3}
 --- !u!1001 &5389889838334126645

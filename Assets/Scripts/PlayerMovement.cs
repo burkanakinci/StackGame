@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float changeOfMousePos, horizontalMovementChange, screenWidth;
     private void Start()
     {
+
         playerXClampValue = Mathf.Abs(playerXClampValue);
         screenWidth = Screen.width;
     }
@@ -35,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            horizontalMovementChange = 0;
+
             changeOfMousePos = Input.mousePosition.x - firstMousePos.x;
             if (Mathf.Abs(changeOfMousePos) > 0.1f)
             {
@@ -49,8 +52,6 @@ public class PlayerMovement : MonoBehaviour
             horizontalMovementChange = 0;
             firstMousePos = Input.mousePosition;
         }
-
-
     }
 
     void MoveForward()
@@ -60,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCharacter()
     {
-        transform.localPosition = new Vector3(Mathf.Clamp(Mathf.Lerp(transform.localPosition.x, transform.localPosition.x + horizontalMovementChange, horizontalSpeed * Time.fixedDeltaTime), (-1f * playerXClampValue), playerXClampValue), transform.localPosition.y, transform.localPosition.z);
-        horizontalMovementChange = 0;
+        transform.localPosition = new Vector3(Mathf.Clamp(Mathf.Lerp(transform.localPosition.x, transform.localPosition.x + (horizontalMovementChange * playerXClampValue * 2f), horizontalSpeed * Time.fixedDeltaTime), (-1f * playerXClampValue), playerXClampValue), transform.localPosition.y, transform.localPosition.z);
     }
 }
