@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
 
 public class LevelDataCreator : MonoBehaviour
@@ -19,9 +21,10 @@ public class LevelDataCreator : MonoBehaviour
 
     public void SaveLevelDataButton()
     {
+#if UNITY_EDITOR
         tempLevelData = ScriptableObject.CreateInstance<LevelData>();
 
-        savePath = UnityEditor.AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/LevelScriptableObjects/Level" + int.Parse(levelNumberText.text.Trim(levelNumberText.text[levelNumberText.text.Length - 1])) + ".asset");
+        savePath = AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/LevelScriptableObjects/Level" + int.Parse(levelNumberText.text.Trim(levelNumberText.text[levelNumberText.text.Length - 1])) + ".asset");
 
         obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         platforms = GameObject.FindGameObjectsWithTag("Platform");
@@ -51,5 +54,6 @@ public class LevelDataCreator : MonoBehaviour
 
         AssetDatabase.CreateAsset(tempLevelData, savePath);
         AssetDatabase.SaveAssets();
+#endif
     }
 }
