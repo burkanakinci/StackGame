@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private float stackFilledAmount;
     private bool diamondParentFirstIsMove;
     private Vector3 diamondParentStartPos;
-    [SerializeField] private ParticleSystem moneyParticle, diamondParticle;
+    [SerializeField] private ParticleSystem moneyParticle, diamondParticle, successParticle;
     private void Awake()
     {
         diamondParentStartPos = diamondParentFirst.localPosition;
@@ -47,6 +47,10 @@ public class PlayerController : MonoBehaviour
     public void PlayDiamondParticle()
     {
         diamondParticle.Play();
+    }
+    public void PlaySuccessParticle()
+    {
+        successParticle.Play();
     }
     public void SetTotalCurrencyAmountData()
     {
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
     }
     public void PlayRun2Animation()
     {
+        playerAnimator.SetBool("IsRun", false);
         if (playerAnimator.GetInteger("Run") != 1)
         {
             playerAnimator.SetInteger("Run", 1);
@@ -155,6 +160,13 @@ public class PlayerController : MonoBehaviour
             tempDecreaseDiamond.ResetJumpParameters();
 
             SetFilledStack();
+
+            if (collectedDiamond.Count == 0)
+            {
+                diamondParentFirst.SetParent(playerMovement.transform);
+
+                PlayRun1Animation();
+            }
         }
     }
     public void DecreaseCurrencyAmount()

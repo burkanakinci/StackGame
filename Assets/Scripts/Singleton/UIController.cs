@@ -147,6 +147,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
+            PlayerController.Instance.PlaySuccessParticle();
             nextLevelButtonArea.SetActive(true);
             successBackground.SetActive(true);
         }
