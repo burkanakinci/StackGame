@@ -108,3 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839a8bbca47c5224cac829f5294dd636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyParticle: {fileID: 0}

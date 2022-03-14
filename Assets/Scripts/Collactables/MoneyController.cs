@@ -15,13 +15,13 @@ public class MoneyController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")&& GameManager.Instance.GetGameState() == GameState.Play)
+        if (other.CompareTag("Player") && GameManager.Instance.GetGameState() == GameState.Play)
         {
             moneyCollider.enabled = false;
 
-            ObjectPool.Instance.SpawnMoneyOnUI();
+            PlayerController.Instance.PlayMoneyParticle();
 
-            this.gameObject.SetActive(false);
+            ObjectPool.Instance.SpawnMoneyOnUI();
         }
     }
 

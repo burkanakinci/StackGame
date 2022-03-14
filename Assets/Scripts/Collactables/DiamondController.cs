@@ -23,6 +23,8 @@ public class DiamondController : MonoBehaviour
         {
             diamondCollider.enabled = false;
 
+            PlayerController.Instance.PlayDiamondParticle();
+
             PlayerController.Instance.CollectDiamond(ref diamondMovement);
         }
     }
@@ -30,5 +32,4 @@ public class DiamondController : MonoBehaviour
     {
         diamondCollider.enabled = true;
     }
-
 }

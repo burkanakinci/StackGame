@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec454eec2ed2de4aa1a22a8f8efe9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondParticle: {fileID: 0}
 --- !u!114 &4168694662010780561
 MonoBehaviour:
   m_ObjectHideFlags: 0

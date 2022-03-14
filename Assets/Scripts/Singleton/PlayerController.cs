@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private float stackFilledAmount;
     private bool diamondParentFirstIsMove;
     private Vector3 diamondParentStartPos;
+    [SerializeField] private ParticleSystem moneyParticle, diamondParticle;
     private void Awake()
     {
         diamondParentStartPos = diamondParentFirst.localPosition;
@@ -38,6 +39,14 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.levelStart += ResetPlayerValues;
 
         instance = this;
+    }
+    public void PlayMoneyParticle()
+    {
+        moneyParticle.Play();
+    }
+    public void PlayDiamondParticle()
+    {
+        diamondParticle.Play();
     }
     public void SetTotalCurrencyAmountData()
     {
