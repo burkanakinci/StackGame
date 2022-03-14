@@ -119,6 +119,8 @@ public class UIController : MonoBehaviour
         nextLevelButtonArea.SetActive(false);
         levelText.gameObject.SetActive(false);
 
+        PlayerController.Instance.PlaySuccessParticle();
+
         StartCoroutine(SetTotalCurrencyAmountOnUI());
     }
     public void UIOnFail()
@@ -138,6 +140,7 @@ public class UIController : MonoBehaviour
     }
     private IEnumerator SetTotalCurrencyAmountOnUI()
     {
+
         PlayerController.Instance.DecreaseCurrencyAmount();
         yield return new WaitForSeconds(decreaseCurrencyAmountDuration);
         PlayerController.Instance.IncreaseTotalCurrencyAmount();
@@ -147,7 +150,6 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            PlayerController.Instance.PlaySuccessParticle();
             nextLevelButtonArea.SetActive(true);
             successBackground.SetActive(true);
         }
