@@ -9,8 +9,8 @@ public class FinishController : MonoBehaviour
         if (other.CompareTag("Player") && GameManager.Instance.GetGameState() == GameState.Play)
         {
             GameManager.Instance.SetGameState(GameState.Finish);
-            PlayerController.Instance.CleanDiamondOnPlayer();
-            if (((PlayerController.Instance.GetCollectedDiamondCount()) + (PlayerController.Instance.GetUpgradeIncrease()))
+            
+            if ((PlayerController.Instance.GetCollectedDiamondCount() + PlayerController.Instance.GetUpgradeIncrease())
                 >= PlayerController.Instance.GetNeededStack())
             {
                 PlayerController.Instance.PlayDanceAnimation();
@@ -21,6 +21,8 @@ public class FinishController : MonoBehaviour
                 PlayerController.Instance.PlayIdleAnimation();
                 UIController.Instance.UIOnFail();
             }
+
+            PlayerController.Instance.CleanDiamondOnPlayer();
         }
     }
 }

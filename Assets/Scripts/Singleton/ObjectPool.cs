@@ -98,7 +98,6 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = moneyParent.childCount - 1; i >= 0; i--)
         {
-
             moneyParent.GetChild(i).gameObject.SetActive(false);
         }
     }
