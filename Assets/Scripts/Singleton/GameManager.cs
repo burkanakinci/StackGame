@@ -18,10 +18,7 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if (instance == null)
-            {
-                instance = new GameObject("GameManager").AddComponent<GameManager>();
-            }
+
             return instance;
         }
     }

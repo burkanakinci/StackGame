@@ -24,7 +24,21 @@ public class ObstacleController : MonoBehaviour
         {
             obstacleCollider.enabled = false;
 
-            StartCoroutine(DecreasePlayerDuration());
+            PlayerController.Instance.obstacleCollidedCounter++;
+
+            if (PlayerController.Instance.obstacleCollidedCounter >= 3)
+            {
+                GameManager.Instance.SetGameState(GameState.Fail);
+
+                PlayerController.Instance.PlayIdleAnimation();
+                UIController.Instance.UIOnFail();
+
+                PlayerController.Instance.CleanDiamondOnPlayer();
+            }
+            else
+            {
+                StartCoroutine(DecreasePlayerDuration());
+            }
         }
     }
     private void OnDisable()
@@ -40,5 +54,6 @@ public class ObstacleController : MonoBehaviour
         {
             StartCoroutine(DecreasePlayerDuration());
         }
+
     }
 }

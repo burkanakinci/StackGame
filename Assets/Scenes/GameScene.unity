@@ -486,11 +486,11 @@ RectTransform:
   m_Father: {fileID: 1414842873}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -391.06}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 121.48}
   m_SizeDelta: {x: 500, y: 120}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &94957925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,7 +1036,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -75.27344}
-  m_SizeDelta: {x: 558.8, y: 110}
+  m_SizeDelta: {x: 494.0593, y: 110}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &327109186
 MonoBehaviour:
@@ -1058,7 +1058,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZeRunSum Collector
+  m_text: 'GambuLab
+
+    Assignment'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f0dcbafcd1ffeb47b134caf0af68efb, type: 2}
   m_sharedMaterial: {fileID: 7017996819258800016, guid: 1f0dcbafcd1ffeb47b134caf0af68efb, type: 2}
@@ -1440,7 +1442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Failled
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f0dcbafcd1ffeb47b134caf0af68efb, type: 2}
   m_sharedMaterial: {fileID: 7017996819258800016, guid: 1f0dcbafcd1ffeb47b134caf0af68efb, type: 2}
@@ -1992,11 +1994,11 @@ RectTransform:
   m_Father: {fileID: 57685095}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 217}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 406.18}
   m_SizeDelta: {x: 400, y: 400}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &954626995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3699,11 +3701,11 @@ RectTransform:
   m_Father: {fileID: 1414842873}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 302.06}
   m_SizeDelta: {x: 550, y: 170}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1636915998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4359,7 +4361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ce3b0803c40b449962c766d1761e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetOnPlay: {x: 2.5, y: 8, z: -15}
+  offsetOnPlay: {x: 0, y: 10, z: -12}
   offsetOnFinish: {x: 0, y: 0, z: 0}
   player: {fileID: 543450652981571382}
   lerpOnPlay: 0.15
@@ -5654,7 +5656,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4191131079018504392}
-  m_LocalRotation: {x: -0.025490498, y: -0, z: -0, w: 0.9996751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.17000008, y: 1.41, z: -0.63600016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5759,6 +5761,7 @@ MonoBehaviour:
   moneyParticle: {fileID: 954626997}
   diamondParticle: {fileID: 653346149}
   successParticle: {fileID: 85023484}
+  obstacleCollidedCounter: 0
 --- !u!4 &4191131079522980017
 Transform:
   m_ObjectHideFlags: 0

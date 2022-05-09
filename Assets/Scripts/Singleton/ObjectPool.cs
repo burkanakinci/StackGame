@@ -9,10 +9,6 @@ public class ObjectPool : MonoBehaviour
     {
         get
         {
-            if (instance == null)
-            {
-                instance = new GameObject("ObjectPool").AddComponent<ObjectPool>();
-            }
             return instance;
         }
     }

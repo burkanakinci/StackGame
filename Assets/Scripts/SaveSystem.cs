@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    static string extensionName = "zerosumstackgame";
+    static string extensionName = "gambuLab";
 
     public static void SaveLastLevelNum(int levelNum)
     {

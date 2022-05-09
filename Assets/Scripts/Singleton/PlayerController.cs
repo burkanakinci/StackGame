@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool diamondParentFirstIsMove;
     private Vector3 diamondParentStartPos;
     [SerializeField] private ParticleSystem moneyParticle, diamondParticle, successParticle;
+    public int obstacleCollidedCounter;
     private void Awake()
     {
         diamondParentStartPos = diamondParentFirst.localPosition;
@@ -63,35 +64,28 @@ public class PlayerController : MonoBehaviour
         stackFilledImage.fillAmount = stackFilledAmount;
     }
 
-    public void ResetAnimatorParameters()
-    {
-        playerAnimator.SetBool("IsIdle", false);
-        playerAnimator.SetBool("IsRun", false);
-        playerAnimator.SetInteger("Run", 0);
-        playerAnimator.SetBool("IsDance", false);
-
-        playerAnimator.Play("Idle", 0, 0.0f);
-    }
     public void PlayIdleAnimation()
     {
-
-        ResetAnimatorParameters();
+        playerAnimator.SetBool("IsIdle", false);
+        playerAnimator.SetInteger("Run", -1);
+        playerAnimator.SetBool("IsDance", false);
 
         playerAnimator.Play("Idle", 0, 0.0f);
     }
     public void PlayRun1Animation()
     {
-        playerAnimator.SetBool("IsRun", true);
+        playerAnimator.SetInteger("Run", 0);
+        diamondParentFirstIsMove = false;
     }
     public void PlayRun2Animation()
     {
-        playerAnimator.SetBool("IsRun", false);
-        if (playerAnimator.GetInteger("Run") != 1)
-        {
-            playerAnimator.SetInteger("Run", 1);
-        }
+
+        playerAnimator.SetInteger("Run", 1);
+
         if (!diamondParentFirstIsMove)
         {
+            StopCoroutine(DiamondFirstMove());
+
             diamondParentFirstIsMove = true;
 
             StartCoroutine(DiamondFirstMove());
@@ -106,16 +100,19 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         diamondParentFirst.SetParent(spineTransform);
+        diamondParentFirst.localPosition = new Vector3(0f, diamondParentFirst.localPosition.y, diamondParentFirst.localPosition.z);
+        diamondParentFirst.localEulerAngles = Vector3.zero;
     }
     public void CollectDiamond(ref DiamondMovement _diamondMovement)
     {
-        PlayRun2Animation();
 
         collectedDiamond.Add(_diamondMovement);
 
         if (collectedDiamond.Count == 1)
         {
             _diamondMovement.transform.SetParent(diamondParentFirst);
+
+            PlayRun2Animation();
         }
         else
         {
@@ -164,6 +161,8 @@ public class PlayerController : MonoBehaviour
             if (collectedDiamond.Count == 0)
             {
                 diamondParentFirst.SetParent(playerMovement.transform);
+                diamondParentFirst.localPosition = diamondParentStartPos;
+                diamondParentFirst.localEulerAngles = Vector3.zero;
 
                 PlayRun1Animation();
             }
@@ -189,14 +188,16 @@ public class PlayerController : MonoBehaviour
         diamondParentFirstIsMove = false;
         diamondParentFirst.SetParent(playerMovement.transform);
         diamondParentFirst.localPosition = diamondParentStartPos;
-        diamondParentFirst.eulerAngles = Vector3.zero;
+        diamondParentFirst.localEulerAngles = Vector3.zero;
 
         currencyAmount = 0;
         UIController.Instance.ShowCurrencyAmount(ref currencyAmount);
         totalCurrencyAmount = SaveSystem.LoadCurrencyAmount();
         UIController.Instance.ShowTotalCurrencyAmount(ref totalCurrencyAmount);
 
-        ResetAnimatorParameters();
+        PlayIdleAnimation();
+
+        obstacleCollidedCounter = 0;
     }
 
     public float GetPositionOnUI()
